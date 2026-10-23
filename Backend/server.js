@@ -1,11 +1,16 @@
-
 import express from "express";
 import axios from "axios";
 import { configDotenv } from "dotenv";
+import cors from "cors"
+
 
 configDotenv();
 
 const app = express();
+
+app.use(cors({
+  origin: "http://localhost:5173"
+}));
 app.use(express.json());
 
 app.get("/", (req, res) => {
